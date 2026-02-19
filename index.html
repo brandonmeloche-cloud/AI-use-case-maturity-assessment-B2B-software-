@@ -9,38 +9,39 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
     <style>
       :root { --bg:#05070f; --panel:#0d1020; --panel-soft:#11162a; --line:#242b48; --text:#eff2ff; --muted:#9099c7; --lime:#d8ff3e; --teal:#44e9ca; }
-      * { box-sizing: border-box; }
-      body { margin:0; min-height:100vh; background:radial-gradient(circle at 20% 0%, #121a36 0%, var(--bg) 40%); color:var(--text); font-family:'Space Grotesk', system-ui, sans-serif; }
-      .container { width:min(1200px, 96vw); margin:2rem auto 3rem; }
-      .eyebrow { color:var(--lime); font-family:'JetBrains Mono', monospace; letter-spacing:.2em; font-size:.78rem; text-transform:uppercase; }
-      h1 { font-size:clamp(2rem,5vw,3.8rem); margin:.4rem 0 .8rem; line-height:1; }
-      h1 span { color:var(--lime); }
-      .sub { color:var(--muted); font-family:'JetBrains Mono', monospace; line-height:1.55; max-width:75ch; }
-      .stats { display:grid; grid-template-columns:repeat(3,minmax(120px,1fr)); gap:1rem; margin:1.5rem 0; }
-      .stat { background:rgba(13,16,32,.7); border:1px solid var(--line); border-radius:10px; padding:.9rem 1rem; }
-      .stat .value { color:var(--lime); font-size:1.8rem; font-weight:700; }
-      .stat .label { color:var(--muted); font-family:'JetBrains Mono', monospace; font-size:.75rem; text-transform:uppercase; }
-      .tabs { display:flex; overflow-x:auto; gap:.5rem; padding-bottom:.5rem; margin-bottom:1rem; }
-      .tab { background:var(--panel); border:1px solid var(--line); color:var(--muted); border-radius:999px; padding:.5rem .95rem; font-weight:500; cursor:pointer; white-space:nowrap; }
-      .tab.active { color:#08101d; background:var(--lime); border-color:var(--lime); }
-      .panel { background:rgba(13,16,32,.7); border:1px solid var(--line); border-radius:14px; padding:1.2rem; }
-      .panel h2 { margin:0 0 .2rem; }
-      .panel p { margin:0; color:var(--muted); font-family:'JetBrains Mono', monospace; }
-      .use-case-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1rem; margin-top:1rem; }
-      .card { border:1px solid var(--line); border-radius:12px; background:var(--panel-soft); padding:.85rem; }
-      .card h3 { margin:0 0 .4rem; font-size:1rem; }
-      .card p { margin:0 0 .8rem; color:var(--muted); font-family:'JetBrains Mono', monospace; font-size:.8rem; }
-      .score-buttons { display:flex; gap:.35rem; flex-wrap:wrap; }
-      .score-btn { border:1px solid var(--line); color:var(--muted); background:#0a0f1d; border-radius:7px; width:33px; height:33px; cursor:pointer; font-family:'JetBrains Mono', monospace; }
-      .score-btn.active { background:var(--teal); color:#041410; border-color:var(--teal); font-weight:700; }
-      .score-label { margin-top:.45rem; color:var(--teal); font-size:.8rem; min-height:1.2em; font-family:'JetBrains Mono', monospace; }
-      form { margin-top:1.5rem; display:grid; gap:.8rem; }
-      .form-row { display:grid; gap:.8rem; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); }
-      input,textarea { width:100%; background:#0a0f1d; border:1px solid var(--line); border-radius:8px; color:var(--text); padding:.7rem .8rem; font:inherit; }
-      textarea { min-height:100px; resize:vertical; }
-      button[type='submit'] { justify-self:start; background:var(--lime); color:#0b101b; border:0; border-radius:9px; padding:.7rem 1.1rem; font-weight:700; cursor:pointer; }
-      .status { font-family:'JetBrains Mono', monospace; font-size:.85rem; }
-      @media (max-width: 600px) { .stats { grid-template-columns: 1fr; } }
+      *{box-sizing:border-box}
+      body{margin:0;min-height:100vh;background:radial-gradient(circle at 20% 0%,#121a36 0%,var(--bg) 40%);color:var(--text);font-family:'Space Grotesk',system-ui,sans-serif}
+      .container{width:min(1200px,96vw);margin:2rem auto 3rem}
+      .eyebrow{color:var(--lime);font-family:'JetBrains Mono',monospace;letter-spacing:.2em;font-size:.78rem;text-transform:uppercase}
+      h1{font-size:clamp(2rem,5vw,3.8rem);margin:.4rem 0 .8rem;line-height:1} h1 span{color:var(--lime)}
+      .sub{color:var(--muted);font-family:'JetBrains Mono',monospace;line-height:1.55;max-width:90ch}
+      .stats{display:grid;grid-template-columns:repeat(3,minmax(120px,1fr));gap:1rem;margin:1.5rem 0}
+      .stat{background:rgba(13,16,32,.7);border:1px solid var(--line);border-radius:10px;padding:.9rem 1rem}
+      .stat .value{color:var(--lime);font-size:1.8rem;font-weight:700}
+      .stat .label{color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:.75rem;text-transform:uppercase}
+      .tabs{display:flex;overflow-x:auto;gap:.5rem;padding-bottom:.5rem;margin-bottom:1rem}
+      .tab{background:var(--panel);border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:.5rem .95rem;font-weight:500;cursor:pointer;white-space:nowrap}
+      .tab.active{color:#08101d;background:var(--lime);border-color:var(--lime)}
+      .panel{background:rgba(13,16,32,.7);border:1px solid var(--line);border-radius:14px;padding:1.2rem}
+      .panel h2{margin:0 0 .2rem}.panel p{margin:0;color:var(--muted);font-family:'JetBrains Mono',monospace}
+      .rating-guidance{margin-top:.65rem;font-size:.82rem;color:var(--teal)}
+      .category-block{margin-top:1rem;border-top:1px solid var(--line);padding-top:.95rem}
+      .category-title{margin:0 0 .6rem;font-size:.98rem;color:var(--lime);letter-spacing:.03em;text-transform:uppercase}
+      .use-case-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:.8rem}
+      .card{border:1px solid var(--line);border-radius:12px;background:var(--panel-soft);padding:.8rem}
+      .usecase-title{margin:0 0 .35rem;font-size:1rem;font-weight:700;line-height:1.25}
+      .usecase-description{margin:0 0 .75rem;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:.78rem;line-height:1.45;font-weight:400}
+      .score-buttons{display:flex;gap:.35rem;flex-wrap:wrap}
+      .score-btn{border:1px solid var(--line);color:var(--muted);background:#0a0f1d;border-radius:7px;width:33px;height:33px;cursor:pointer;font-family:'JetBrains Mono',monospace}
+      .score-btn.active{background:var(--teal);color:#041410;border-color:var(--teal);font-weight:700}
+      .score-label{margin-top:.45rem;color:var(--teal);font-size:.78rem;min-height:1.2em;font-family:'JetBrains Mono',monospace}
+      form{margin-top:1.5rem;display:grid;gap:.8rem}
+      .form-row{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+      input,textarea{width:100%;background:#0a0f1d;border:1px solid var(--line);border-radius:8px;color:var(--text);padding:.7rem .8rem;font:inherit}
+      textarea{min-height:100px;resize:vertical}
+      button[type='submit']{justify-self:start;background:var(--lime);color:#0b101b;border:0;border-radius:9px;padding:.7rem 1.1rem;font-weight:700;cursor:pointer}
+      .status{font-family:'JetBrains Mono',monospace;font-size:.85rem}
+      @media (max-width:600px){.stats{grid-template-columns:1fr}}
     </style>
   </head>
   <body>
@@ -62,7 +63,8 @@
       <section class="panel">
         <h2 id="functionTitle"></h2>
         <p id="functionDescription"></p>
-        <div class="use-case-grid" id="useCaseGrid"></div>
+        <p class="rating-guidance">Choose one maturity score (0–5) for each use case below.</p>
+        <div id="functionCategories"></div>
       </section>
 
       <form id="submitForm">
@@ -77,248 +79,317 @@
     </main>
 
     <script>
-      const scoreText = {
-        0: '0 — Not started',
-        1: '1 — Exploring',
-        2: '2 — Piloting',
-        3: '3 — In rollout',
-        4: '4 — Deployed',
-        5: '5 — At scale',
-      };
+      const scoreText = {0:'0 — Not started',1:'1 — Exploring',2:'2 — Piloting',3:'3 — In rollout',4:'4 — Deployed',5:'5 — At scale'};
+
+      const pack = (...items) => items.map((entry) => {
+        const [title, description] = entry.split(' — ');
+        return { title, description };
+      });
 
       const assessmentModel = [
-        {
-          function: 'Marketing',
-          description: 'Strategy, content, SEO, lifecycle, paid media, events, and attribution.',
-          useCases: [
+        { function: 'Marketing', description: 'Strategy, content, SEO, lifecycle, paid media, events, and attribution.', categories: [
+          { name: 'Strategy & planning', useCases: pack(
             'ICP/persona synthesis — clusters customer data and research into clear segments/personas',
             'Messaging & positioning drafts — generates value props, proof points, and differentiation angles',
             'Competitive intel summarization — monitors competitor changes and produces “what changed / so what”',
             'Campaign planning assistant — suggests themes, channels, sequencing, and asset lists',
-            'Market trend scanning — surfaces emerging topics/keywords relevant to the category',
+            'Market trend scanning — surfaces emerging topics/keywords relevant to the category'
+          )},
+          { name: 'Content creation & production', useCases: pack(
             'Blog/ebook/whitepaper drafting — creates first drafts aligned to a brief and tone guidelines',
             'Case study generation — turns notes/interviews into structured customer stories and metrics prompts',
             'Website copy variants — produces multiple headline/value prop versions for testing',
             'Social content repurposing — converts long-form into short-form posts and thread variants',
             'Creative brief generation — drafts briefs for design/video with target, message, CTA, constraints',
-            'Brand consistency checking — flags off-brand voice, claims, and terminology drift',
+            'Brand consistency checking — flags off-brand voice, claims, and terminology drift'
+          )},
+          { name: 'SEO & web', useCases: pack(
             'Keyword expansion & clustering — groups keywords into topic clusters and content maps',
             'On-page optimization suggestions — recommends titles, headings, internal links, schema opportunities',
             'Content gap analysis — finds missing pages vs competitors/intent and prioritizes new content',
             'CRO insights from sessions — summarizes analytics/session notes into friction points and hypotheses',
-            'Landing page personalization — adapts hero copy/CTAs by industry, role, or source campaign',
+            'Landing page personalization — adapts hero copy/CTAs by industry, role, or source campaign'
+          )},
+          { name: 'Lifecycle, email & nurture', useCases: pack(
             'Nurture sequence generation — drafts multi-step email sequences by persona and funnel stage',
             'Send-time/subject optimization — suggests testable subject lines and timing hypotheses',
             'Lead scoring enhancement — improves scoring logic using behavioral + firmographic signals',
-            'Churn-risk messaging — triggers retention campaigns based on usage signals',
+            'Churn-risk messaging — triggers retention campaigns based on usage signals'
+          )},
+          { name: 'Paid media & ABM', useCases: pack(
             'Ad copy + variant generation — creates compliant variants for search/social with keyword alignment',
             'Audience/intent modeling — proposes target account lists and intent signal rules',
             'Budget pacing recommendations — flags overspend/underspend and suggests reallocation options',
-            'Creative fatigue detection — identifies declining performance patterns and suggests refreshes',
+            'Creative fatigue detection — identifies declining performance patterns and suggests refreshes'
+          )},
+          { name: 'Events & webinars', useCases: pack(
             'Webinar topic selection — recommends topics based on pipeline gaps and search/intent signals',
             'Speaker notes & scripts — drafts run-of-show, talk tracks, and Q&A prep',
-            'Post-event follow-up automation — generates recap content and persona-specific follow-ups',
+            'Post-event follow-up automation — generates recap content and persona-specific follow-ups'
+          )},
+          { name: 'Analytics & attribution', useCases: pack(
             'Marketing performance narrative — turns dashboards into “what happened / why / what next”',
             'Multi-touch attribution assist — suggests models and explains sensitivity/assumptions',
-            'Experiment analysis copilot — interprets A/B results and recommends next tests',
-          ],
-        },
-        {
-          function: 'Sales',
-          description: 'Prospecting, discovery, demo support, forecasting, and expansion.',
-          useCases: [
+            'Experiment analysis copilot — interprets A/B results and recommends next tests'
+          )},
+        ]},
+
+        { function: 'Sales', description: 'Targeting, outreach, discovery, proposals, forecasting, and expansion.', categories: [
+          { name: 'Targeting & prospecting', useCases: pack(
             'Account list building — identifies best-fit accounts from firmographics + intent signals',
             'Buyer map generation — suggests likely stakeholders, titles, and priorities by segment',
             'Lead enrichment & research briefs — summarizes company news, stack, initiatives, and pain points',
-            'Propensity-to-buy scoring — predicts likelihood to convert using historical pipeline patterns',
+            'Propensity-to-buy scoring — predicts likelihood to convert using historical pipeline patterns'
+          )},
+          { name: 'Outreach & sequencing', useCases: pack(
             'Personalized outbound emails — drafts persona- and company-specific outreach variants',
             'Call scripts & objection handling — generates talk tracks and rebuttals aligned to product strengths',
             'Multi-channel sequence creation — produces coordinated email/LinkedIn/call sequences by ICP',
-            'Reply classification & routing — tags inbound responses (interested, not now, competitor, etc.)',
+            'Reply classification & routing — tags inbound responses (interested, not now, competitor, etc.)'
+          )},
+          { name: 'Pre-sales & discovery', useCases: pack(
             'Discovery question generator — suggests targeted questions based on industry and use case',
             'Meeting prep packs — compiles account context, open opportunities, stakeholders, risks',
             'Real-time note capture & summary — summarizes calls into needs, timeline, decision process, next steps',
-            'MEDDICC/qualification assistant — fills qualification frameworks and flags missing info',
+            'MEDDICC/qualification assistant — fills qualification frameworks and flags missing info'
+          )},
+          { name: 'Demo & solutioning', useCases: pack(
             'Demo personalization — recommends flows, stories, and features based on prospect pains',
             'Use-case-to-feature mapping — converts requirements into a proposed solution outline',
             'Technical Q&A copilot — drafts accurate answers from product docs and approved knowledge',
-            'RFP/RFI response automation — drafts responses with citations to internal sources and guardrails',
+            'RFP/RFI response automation — drafts responses with citations to internal sources and guardrails'
+          )},
+          { name: 'Proposals, pricing & contracting', useCases: pack(
             'Proposal drafting — generates SOW/proposal sections, scope options, and assumptions',
             'Pricing guidance — suggests discount bands and packaging based on deal context and history',
             'Redline assistance — summarizes contract changes and highlights risk clauses for Legal',
-            'Order form error detection — flags missing fields, misaligned SKUs, and billing inconsistencies',
+            'Order form error detection — flags missing fields, misaligned SKUs, and billing inconsistencies'
+          )},
+          { name: 'Pipeline management & forecasting', useCases: pack(
             'Forecast risk alerts — detects slip risk from activity patterns, stakeholders, and deal hygiene',
             'Next-best-action recommendations — suggests specific actions to move each deal forward',
             'Pipeline hygiene automation — prompts for missing fields, stale stages, and close plan gaps',
-            'Win/loss analysis — extracts root causes and trends across segments and competitors',
+            'Win/loss analysis — extracts root causes and trends across segments and competitors'
+          )},
+          { name: 'Account management & expansion', useCases: pack(
             'QBR narrative builder — turns usage + outcomes into an executive-ready story and roadmap',
             'Expansion opportunity detection — identifies upsell/cross-sell triggers from usage/feature adoption',
             'Renewal risk scoring — predicts churn risk and recommends save plays',
-            'Customer value quantification — estimates ROI/TCO from product telemetry and customer inputs',
-          ],
-        },
-        {
-          function: 'Product',
-          description: 'Discovery, roadmap, UX, experimentation, in-product AI, and governance.',
-          useCases: [
+            'Customer value quantification — estimates ROI/TCO from product telemetry and customer inputs'
+          )},
+        ]},
+
+        { function: 'Product', description: 'Discovery, prioritization, UX, analytics, in-product AI, and governance.', categories: [
+          { name: 'Discovery & research', useCases: pack(
             'User feedback summarization — clusters themes from tickets, calls, surveys, reviews',
             'JTBD synthesis — converts qualitative input into jobs, pains, and success metrics',
             'Persona refinement — updates personas based on actual usage and customer conversations',
             'Competitive feature tracking — monitors competitor releases and summarizes implications',
-            'Opportunity sizing assistant — estimates impact using funnel/usage data and assumptions',
+            'Opportunity sizing assistant — estimates impact using funnel/usage data and assumptions'
+          )},
+          { name: 'Roadmap & prioritization', useCases: pack(
             'PRD drafting — generates problem statements, requirements, acceptance criteria, risks',
             'Backlog triage & dedupe — merges duplicates, identifies dependencies, proposes sequencing',
             'Prioritization support — applies scoring frameworks (RICE/WSJF) and explains tradeoffs',
-            'Release scope negotiation — proposes MVP cuts while preserving user value',
+            'Release scope negotiation — proposes MVP cuts while preserving user value'
+          )},
+          { name: 'UX & design', useCases: pack(
             'UX copy generation — drafts in-product microcopy, empty states, and error messages',
             'Flow / wireframe critique — flags usability issues and suggests improvements',
             'Accessibility checks — identifies likely WCAG issues and suggested remediations',
-            'Design-to-requirements translation — turns mockups into implementable requirements',
+            'Design-to-requirements translation — turns mockups into implementable requirements'
+          )},
+          { name: 'Analytics & experimentation', useCases: pack(
             'Event taxonomy suggestions — proposes tracking plans aligned to user journeys',
             'Funnel anomaly detection — surfaces conversion drop-offs and hypothesizes causes',
             'Experiment design copilot — suggests test plans, sample sizing logic, and guardrails',
-            'Insight narratives — explains “what changed and why” from product metrics',
+            'Insight narratives — explains “what changed and why” from product metrics'
+          )},
+          { name: 'In-product AI features (customer-facing)', useCases: pack(
             'In-app assistant — answers “how do I…” and performs guided actions inside the product',
             'Natural language search — searches across objects/docs/tickets with intent understanding',
             'Smart recommendations — suggests next steps, templates, or configurations based on context',
             'Auto-generated content — drafts emails, reports, summaries, or configs inside workflows',
             'Data extraction & structuring — turns unstructured inputs into structured records',
             'Anomaly detection — flags unusual usage, performance, or business metric shifts',
-            'Personalization — tailors UI, defaults, and content by role, industry, and behavior',
+            'Personalization — tailors UI, defaults, and content by role, industry, and behavior'
+          )},
+          { name: 'Trust, safety & governance', useCases: pack(
             'Content moderation — filters unsafe or policy-violating user-generated content',
             'Hallucination guardrails — retrieves grounded answers and signals uncertainty',
             'Audit trails & explanations — records model inputs/outputs and rationale where possible',
-            'Policy enforcement — ensures generated content aligns with compliance/brand rules',
-          ],
-        },
-        {
-          function: 'Engineering',
-          description: 'SDLC productivity, quality, architecture, reliability, and security.',
-          useCases: [
+            'Policy enforcement — ensures generated content aligns with compliance/brand rules'
+          )},
+        ]},
+
+        { function: 'Engineering', description: 'SDLC productivity, reliability, architecture, and security.', categories: [
+          { name: 'Software development (SDLC)', useCases: pack(
             'Code generation & scaffolding — creates boilerplate, endpoints, components, and tests',
             'Code completion & refactoring — suggests improvements, simplifications, and patterns',
             'Code review assistant — flags bugs, style issues, security risks, and performance concerns',
             'Dependency upgrade support — proposes safe upgrade paths and highlights breaking changes',
-            'Documentation generation — creates READMEs, API docs, inline comments, and ADR drafts',
+            'Documentation generation — creates READMEs, API docs, inline comments, and ADR drafts'
+          )},
+          { name: 'Testing & quality', useCases: pack(
             'Unit/integration test creation — generates tests from code and acceptance criteria',
             'Test case design — creates edge-case matrices and regression suites',
             'Automated QA exploration — suggests exploratory testing scenarios based on recent changes',
-            'Flaky test diagnosis — identifies likely causes and stabilization tactics',
+            'Flaky test diagnosis — identifies likely causes and stabilization tactics'
+          )},
+          { name: 'Architecture & technical planning', useCases: pack(
             'Architecture optioning — proposes architectures with pros/cons and tradeoffs',
             'Migration planning — drafts stepwise plans for replatforming and data migrations',
             'Performance profiling guidance — suggests hotspots and measurement strategies',
-            'Tech debt classification — groups debt items by risk, cost, and user impact',
+            'Tech debt classification — groups debt items by risk, cost, and user impact'
+          )},
+          { name: 'DevOps & reliability (SRE)', useCases: pack(
             'Incident summarization — compiles timelines, customer impact, and root-cause candidates',
             'Runbook generation — drafts operational procedures from tribal knowledge and logs',
             'Alert tuning — reduces noise by proposing thresholds and grouping logic',
-            'Capacity forecasting — predicts resource needs based on trends and release plans',
+            'Capacity forecasting — predicts resource needs based on trends and release plans'
+          )},
+          { name: 'Security engineering', useCases: pack(
             'Secure coding suggestions — highlights common vuln patterns and safer alternatives',
             'Secrets detection & remediation — flags leaked keys and suggests rotation steps',
             'Threat modeling copilot — generates STRIDE-style threat models and mitigations',
-            'SBOM and vulnerability triage — prioritizes CVEs and recommends patch order',
-          ],
-        },
-        {
-          function: 'HR',
-          description: 'Recruiting, onboarding, L&D, performance, and employee operations.',
-          useCases: [
+            'SBOM and vulnerability triage — prioritizes CVEs and recommends patch order'
+          )},
+        ]},
+
+        { function: 'HR', description: 'Talent acquisition, onboarding, development, and HR operations.', categories: [
+          { name: 'Recruiting & talent acquisition', useCases: pack(
             'Job description generation — drafts role specs, leveling, and scorecards',
             'Resume screening support — summarizes fit vs requirements with transparent criteria',
             'Interview question banks — creates structured questions and rubrics by competency',
-            'Candidate communication — drafts outreach, scheduling, and offer communications',
+            'Candidate communication — drafts outreach, scheduling, and offer communications'
+          )},
+          { name: 'Onboarding & enablement', useCases: pack(
             'Role-based onboarding plans — creates 30/60/90 plans and learning paths',
             'Policy Q&A assistant — answers HR policy questions with approved sources',
-            'New-hire buddy guides — generates checklists and onboarding milestones',
+            'New-hire buddy guides — generates checklists and onboarding milestones'
+          )},
+          { name: 'Learning & development', useCases: pack(
             'Personalized learning paths — recommends courses/projects based on skill gaps',
             'Internal knowledge tutoring — answers “how we do things here” from internal docs',
-            'Training content creation — drafts modules, quizzes, and workshops',
+            'Training content creation — drafts modules, quizzes, and workshops'
+          )},
+          { name: 'Performance & talent management', useCases: pack(
             'Goal drafting (OKRs) — helps managers write measurable goals and milestones',
             'Review summary support — synthesizes peer feedback into themes and examples',
             'Calibration prep — compiles evidence, outcomes, and impact narratives',
-            'Career pathing assistant — outlines next-level expectations and development actions',
+            'Career pathing assistant — outlines next-level expectations and development actions'
+          )},
+          { name: 'Employee engagement & HR ops', useCases: pack(
             'Engagement survey analysis — detects themes, sentiment shifts, and root causes',
             'HR case triage — routes issues to the right policy/process with severity tagging',
             'Workforce planning support — scenario models for headcount, attrition, and hiring plans',
-            'Policy and handbook maintenance — suggests updates for clarity and consistency',
-          ],
-        },
-        {
-          function: 'Finance',
-          description: 'Planning, billing, close, spend management, and compliance.',
-          useCases: [
+            'Policy and handbook maintenance — suggests updates for clarity and consistency'
+          )},
+        ]},
+
+        { function: 'Finance', description: 'Planning, revenue operations, close, procurement, and compliance.', categories: [
+          { name: 'FP&A & business planning', useCases: pack(
             'Forecasting copilot — improves forecasts using drivers, seasonality, and pipeline signals',
             'Variance analysis narratives — explains drivers of budget vs actuals and recommended actions',
             'Scenario modeling assistant — builds “best/base/worst” assumptions and sensitivities',
-            'KPI anomaly detection — flags unusual shifts in ARR, churn, CAC, margin, burn',
+            'KPI anomaly detection — flags unusual shifts in ARR, churn, CAC, margin, burn'
+          )},
+          { name: 'Revenue & billing (SaaS)', useCases: pack(
             'Revenue recognition support — suggests classifications and flags exceptions for review',
             'Billing anomaly detection — identifies pricing/billing errors and unusual invoices',
             'Collections prioritization — predicts payment risk and suggests outreach sequencing',
-            'Deal desk margin checks — flags low-margin deals and cost drivers',
+            'Deal desk margin checks — flags low-margin deals and cost drivers'
+          )},
+          { name: 'Accounting & close', useCases: pack(
             'Close checklist automation — generates tasks, owners, and due dates by entity',
             'Transaction categorization — classifies expenses and identifies miscodings',
             'Reconciliation assistance — spots mismatches and proposes likely causes',
-            'Policy memo drafting — drafts accounting memos for complex transactions',
+            'Policy memo drafting — drafts accounting memos for complex transactions'
+          )},
+          { name: 'Procurement & spend', useCases: pack(
             'Vendor spend analysis — identifies consolidation opportunities and waste',
             'Contract summarization — extracts key terms, renewal dates, and cost escalators',
-            'Purchase request triage — routes approvals and checks against policy/budget',
+            'Purchase request triage — routes approvals and checks against policy/budget'
+          )},
+          { name: 'Risk, audit & compliance', useCases: pack(
             'Control testing support — drafts test steps and summarizes evidence gaps',
             'Audit PBC automation — generates “provided by client” lists and tracks responses',
             'Fraud detection signals — flags unusual transactions and access patterns',
-            'Regulatory reporting drafts — prepares narratives and data request outlines',
-          ],
-        },
-        {
-          function: 'Customer Service',
-          description: 'Self-service, triage, agent assist, quality insights, and renewals support.',
-          useCases: [
+            'Regulatory reporting drafts — prepares narratives and data request outlines'
+          )},
+        ]},
+
+        { function: 'Customer Service', description: 'Support deflection, triage, agent assist, and service insights.', categories: [
+          { name: 'Self-service & deflection', useCases: pack(
             'AI support chatbot — resolves common issues and executes simple actions',
             'Guided troubleshooting — interactive decision trees with context-aware steps',
             'Knowledge base generation — drafts and updates articles from resolved tickets',
-            'Search optimization — improves KB findability and suggests missing articles',
+            'Search optimization — improves KB findability and suggests missing articles'
+          )},
+          { name: 'Triage & routing', useCases: pack(
             'Ticket classification — tags intent, product area, severity, and sentiment',
             'Smart routing — assigns to best agent/queue based on skills and workload',
             'Duplicate detection — merges similar issues and links to known problems',
-            'SLA risk prediction — flags tickets likely to breach and recommends actions',
+            'SLA risk prediction — flags tickets likely to breach and recommends actions'
+          )},
+          { name: 'Agent assist & productivity', useCases: pack(
             'Response drafting — suggests replies consistent with policy and product truth',
             'Real-time troubleshooting suggestions — proposes diagnostics based on logs/context',
             'Case summarization — auto-writes internal notes and customer-facing summaries',
-            'Translation/localization — supports multilingual support without losing technical accuracy',
+            'Translation/localization — supports multilingual support without losing technical accuracy'
+          )},
+          { name: 'Quality & insights', useCases: pack(
             'QA scoring assistant — evaluates tone, completeness, accuracy, and policy compliance',
             'Root-cause clustering — groups tickets to identify top drivers and product fixes',
             'Voice-of-customer reporting — produces weekly themes and recommended roadmap items',
-            'CSAT/NPS driver analysis — links satisfaction changes to issue categories and cohorts',
+            'CSAT/NPS driver analysis — links satisfaction changes to issue categories and cohorts'
+          )},
+          { name: 'Customer success & renewals support', useCases: pack(
             'Health scoring — combines usage + ticketing + outcomes into a customer health index',
             'Playbook recommendations — suggests interventions for adoption, risk, and expansion',
-            'Executive summaries — creates concise stakeholder updates and action plans',
-          ],
-        },
-        {
-          function: 'IT & Security',
-          description: 'ITSM, IAM, SOC, vulnerability management, awareness, and GRC.',
-          useCases: [
+            'Executive summaries — creates concise stakeholder updates and action plans'
+          )},
+        ]},
+
+        { function: 'IT & Security', description: 'ITSM, IAM, SOC, vulnerability management, and GRC.', categories: [
+          { name: 'IT service management (ITSM)', useCases: pack(
             'Helpdesk chatbot — resolves common IT requests (passwords, access, setup)',
             'Ticket triage & routing — classifies incidents/requests and assigns appropriately',
             'Knowledge article creation — converts solved tickets into reusable IT docs',
-            'Device setup automation — generates step-by-step onboarding for new endpoints',
+            'Device setup automation — generates step-by-step onboarding for new endpoints'
+          )},
+          { name: 'Identity & access management (IAM)', useCases: pack(
             'Access request automation — recommends least-privilege roles and approvals',
             'Privilege review support — flags unusual entitlements and access creep',
-            'Joiner/mover/leaver workflows — automates access changes on HR events',
+            'Joiner/mover/leaver workflows — automates access changes on HR events'
+          )},
+          { name: 'Security operations (SOC)', useCases: pack(
             'Alert triage copilot — summarizes alerts, correlates signals, suggests next steps',
             'Threat intel summarization — turns feeds into actionable “what to watch”',
             'Incident response assistant — drafts containment/eradication steps and comms templates',
-            'UEBA-style anomaly detection — flags unusual logins, data access, or behavior',
+            'UEBA-style anomaly detection — flags unusual logins, data access, or behavior'
+          )},
+          { name: 'Vulnerability management', useCases: pack(
             'Vulnerability prioritization — ranks CVEs by exploitability and asset criticality',
             'Patch planning — suggests safe rollout plans and maintenance windows',
-            'Config drift detection — identifies deviations from secure baselines',
+            'Config drift detection — identifies deviations from secure baselines'
+          )},
+          { name: 'Security awareness', useCases: pack(
             'Phishing detection & coaching — flags suspicious emails and explains why',
-            'Targeted training recommendations — assigns micro-trainings based on behavior patterns',
+            'Targeted training recommendations — assigns micro-trainings based on behavior patterns'
+          )},
+          { name: 'Governance, risk & compliance (GRC)', useCases: pack(
             'Policy drafting & maintenance — creates policies and maps them to controls',
             'Evidence collection automation — gathers logs/screenshots and builds audit packets',
             'Vendor risk questionnaires — drafts responses and highlights gaps to remediate',
-            'Data classification & DLP support — labels sensitive data and suggests protection rules',
-          ],
-        },
+            'Data classification & DLP support — labels sensitive data and suggests protection rules'
+          )},
+        ]},
       ];
+
+      const flattenUseCases = (fn) => fn.categories.flatMap((category) =>
+        category.useCases.map((useCase) => ({ ...useCase, category: category.name }))
+      );
 
       const ratings = {};
       let activeFunctionIndex = 0;
@@ -326,7 +397,7 @@
       const tabsEl = document.getElementById('tabs');
       const functionTitleEl = document.getElementById('functionTitle');
       const functionDescriptionEl = document.getElementById('functionDescription');
-      const useCaseGridEl = document.getElementById('useCaseGrid');
+      const functionCategoriesEl = document.getElementById('functionCategories');
       const ratedCountEl = document.getElementById('ratedCount');
       const totalCountEl = document.getElementById('totalCount');
       const avgScoreEl = document.getElementById('avgScore');
@@ -335,7 +406,12 @@
 
       function initializeRatings() {
         assessmentModel.forEach((fn) => {
-          ratings[fn.function] = fn.useCases.map((useCase) => ({ useCase, score: null }));
+          ratings[fn.function] = flattenUseCases(fn).map((useCase) => ({
+            title: useCase.title,
+            description: useCase.description,
+            category: useCase.category,
+            score: null,
+          }));
         });
       }
 
@@ -371,42 +447,64 @@
 
       function renderFunctionPanel() {
         const fn = assessmentModel[activeFunctionIndex];
+        const functionRatings = ratings[fn.function];
+
         functionTitleEl.textContent = fn.function;
         functionDescriptionEl.textContent = fn.description;
-        useCaseGridEl.innerHTML = '';
+        functionCategoriesEl.innerHTML = '';
 
-        ratings[fn.function].forEach((entry, useCaseIndex) => {
-          const card = document.createElement('article');
-          card.className = 'card';
+        fn.categories.forEach((category) => {
+          const block = document.createElement('section');
+          block.className = 'category-block';
 
-          const title = document.createElement('h3');
-          title.textContent = entry.useCase;
+          const heading = document.createElement('h3');
+          heading.className = 'category-title';
+          heading.textContent = category.name;
 
-          const desc = document.createElement('p');
-          desc.textContent = 'Select your current maturity stage for this use case.';
+          const grid = document.createElement('div');
+          grid.className = 'use-case-grid';
 
-          const scoreButtons = document.createElement('div');
-          scoreButtons.className = 'score-buttons';
+          category.useCases.forEach((useCase) => {
+            const indexInRatings = functionRatings.findIndex((r) => r.title === useCase.title && r.category === category.name);
+            const entry = functionRatings[indexInRatings];
 
-          for (let score = 0; score <= 5; score += 1) {
-            const scoreBtn = document.createElement('button');
-            scoreBtn.type = 'button';
-            scoreBtn.className = `score-btn ${entry.score === score ? 'active' : ''}`;
-            scoreBtn.textContent = String(score);
-            scoreBtn.addEventListener('click', () => {
-              ratings[fn.function][useCaseIndex].score = score;
-              renderFunctionPanel();
-              updateStats();
-            });
-            scoreButtons.appendChild(scoreBtn);
-          }
+            const card = document.createElement('article');
+            card.className = 'card';
 
-          const scoreLabel = document.createElement('div');
-          scoreLabel.className = 'score-label';
-          scoreLabel.textContent = entry.score === null ? 'Not rated yet' : scoreText[entry.score];
+            const title = document.createElement('h4');
+            title.className = 'usecase-title';
+            title.textContent = useCase.title;
 
-          card.append(title, desc, scoreButtons, scoreLabel);
-          useCaseGridEl.appendChild(card);
+            const description = document.createElement('p');
+            description.className = 'usecase-description';
+            description.textContent = useCase.description;
+
+            const scoreButtons = document.createElement('div');
+            scoreButtons.className = 'score-buttons';
+
+            for (let score = 0; score <= 5; score += 1) {
+              const scoreBtn = document.createElement('button');
+              scoreBtn.type = 'button';
+              scoreBtn.className = `score-btn ${entry.score === score ? 'active' : ''}`;
+              scoreBtn.textContent = String(score);
+              scoreBtn.addEventListener('click', () => {
+                ratings[fn.function][indexInRatings].score = score;
+                renderFunctionPanel();
+                updateStats();
+              });
+              scoreButtons.appendChild(scoreBtn);
+            }
+
+            const scoreLabel = document.createElement('div');
+            scoreLabel.className = 'score-label';
+            scoreLabel.textContent = entry.score === null ? 'Not rated yet' : scoreText[entry.score];
+
+            card.append(title, description, scoreButtons, scoreLabel);
+            grid.appendChild(card);
+          });
+
+          block.append(heading, grid);
+          functionCategoriesEl.appendChild(block);
         });
       }
 
@@ -424,8 +522,8 @@
         Object.entries(payload.ratings).forEach(([functionName, entries]) => {
           lines.push(functionName);
           lines.push('-'.repeat(functionName.length));
-          entries.forEach(({ useCase, score }) => {
-            lines.push(`- ${useCase}: ${score === null ? 'Not rated' : score}`);
+          entries.forEach(({ category, title, description, score }) => {
+            lines.push(`[${category}] ${title} — ${description}: ${score === null ? 'Not rated' : score}`);
           });
           lines.push('');
         });
