@@ -45,3 +45,7 @@ Set these site variables:
 ## Notes
 - You must verify your sender domain/email in Resend before production use.
 - If API configuration is missing, users still get a prefilled local email draft via `mailto:` fallback.
+
+## Troubleshooting
+- If clicking **Submit** opens your email client instead of sending directly, the `/api/submit` function is not reachable or Netlify env vars are missing.
+- Re-check `RESEND_API_KEY` and `FROM_EMAIL` in Netlify Site Settings, then redeploy.
